@@ -1,8 +1,20 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Data Gird";
+    List<string> toolbarItems = new List<string>() { "Add", "Edit", "Delete", "Update", "Cancel" };
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <ejs-grid id="Grid" dataSource="ViewBag.dataSource" allowPaging="true" toolbar="@toolbarItems">
+        <e-grid-editSettings allowAdding="true" allowDeleting="true" allowEditing="true" mode="Normal">
+        </e-grid-editSettings>
+        <e-grid-columns>
+            <e-grid-column field="OrderID" headerText="Order ID"></e-grid-column>
+            <e-grid-column field="CustomerID" headerText="Customer Name"></e-grid-column>
+            <e-grid-column field="OrderDate" headerText=" Order Date" format="yMd" allowEditing="false"></e-grid-column>
+            <e-grid-column field="Freight" headerText="Freight" format="C2"></e-grid-column>
+            <e-grid-column field="ShippedDate" headerText="Shipped Date" format="yMd" allowEditing="false">
+            </e-grid-column>
+            <e-grid-column field="ShipCountry" headerText="Ship Country"></e-grid-column>
+        </e-grid-columns>
+    </ejs-grid>
 </div>
